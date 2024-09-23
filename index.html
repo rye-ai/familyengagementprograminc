@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environmental Campaign</title>
+    <style>
+    pre {
+        font-size: 30px;
+    }
+    
+   .leaf-icons {
+  list-style-type: none; /* Remove default bullets */
+  padding-left: 20px; /* Adjust padding */
+}
+
+.leaf-icons li::before {
+  content: '\f06c'; /* Font Awesome leaf icon */
+  font-family: "Font Awesome 5 Free"; /* Specify the correct font */
+  font-weight: 900; /* Ensure it's solid */
+  color: #39FF14; /* Neon green color */
+  padding-right: 10px; /* Add some space between icon and text */
+}
+
+    /* Custom styling for the list in the goals section */
+section#goals ul {
+    list-style-type: disc; /* Default bullet style */
+    margin: 20px;
+    padding-left: 40px;
+}
+
+section#goals ul li {
+    font-size: 1.2em; /* Adjust font size */
+    line-height: 1.6; /* Adjust line height for readability */
+    color: white; /* White text to match the section style */
+}
+
+    
+    /* Hide all sections initially */
+section {
+    display: none;
+    padding: 20px;
+}
+
+/* Show the active section */
+section.active {
+    display: block;
+}
+
+.mission-vision-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Space between the mission and vision boxes */
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.box {
+    flex: 1; /* Make both boxes take equal width */
+    background-color: #006400; /* Dark green background */
+    border: 2px solid gold; /* Gold border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px;
+    color: white; /* White text */
+    box-sizing: border-box;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for depth */
+}
+
+.mission-vision-container .mission, .mission-vision-container .vision {
+    max-width: 48%; /* Ensure they take up to half the width each */
+}
+
+h3 {
+    margin-top: 0;
+}
+/* Style for the Goals box */
+.box.goals {
+    background-color: #006400; /* Dark green background */
+    border: 2px solid gold; /* Gold border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px;
+    color: white; /* White text */
+    text-align: center; /* Center the Goals heading */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Optional shadow */
+    margin-top: 20px; /* Space above the goals box */
+}
+
+.box.goals ul {
+    list-style-type: none; /* Remove bullet points */
+    padding-left: 0;
+    text-align: left; /* Align the list items to the left */
+}
+
+.box.goals ul li {
+    margin-bottom: 10px; /* Space between list items */
+}
+
+
+
+/* Ensure boxes stack on top of each other on smaller screens */
+@media (max-width: 768px) {
+    .mission-vision-container {
+        flex-direction: column;
+    }
+    .mission-vision-container .mission, .mission-vision-container .vision {
+        max-width: 100%; /* Full width on smaller screens */
+    }
+}
+
+.scroll-container { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; scroll-behavior: smooth; } .achievement { height: 100vh; scroll-snap-align: start; display: flex; flex-direction: column; align-items: center; padding: 10px; box-sizing: border-box; } .achievement-content { width: 100%; display: flex; flex-direction: column; align-items: center; } .image-row { display: flex; gap: 10px; width: 100%; justify-content: center; } .achievement iframe { width: 48%; height: 400px; }
+
+/* Parent container for achievement images */
+.achievement-container {
+    display: flex;
+    flex-direction: column;  /* Arrange items in a column */
+    overflow-y: scroll;  /* Enable vertical scrolling */
+    scroll-snap-type: y mandatory;  /* Enable vertical scroll snapping */
+    scroll-behavior: smooth;  /* Smooth scrolling */
+    height: 100vh;  /* Set the height to full viewport height */
+    padding: 10px;  /* Optional: Add padding for aesthetics */
+    box-sizing: border-box;  /* Ensure padding is included in the width calculation */
+}
+
+/* Individual achievement blocks */
+.achievement {
+    flex: 0 0 auto;  /* Prevent shrinking and ensure proper height */
+    height: 100vh;  /* Make each block take the full viewport height */
+    scroll-snap-align: start;  /* Snap to the start of each achievement block */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;  /* Optional: Add spacing between blocks */
+}
+
+/* Container for side-by-side images */
+.image-row {
+    display: flex;  /* Use flexbox to arrange images side by side */
+    gap: 10px;  /* Optional: Add space between images */
+    width: 100%;  /* Make sure the row takes full width of its parent */
+    justify-content: center;  /* Center images horizontally */
+}
+
+/* Ensure iframes fit well */
+.achievement iframe {
+    width: 48%;  /* Adjust width to fit side by side with some gap */
+    height: 400px;  /* Adjust height as needed */
+}
+/* Parent container for achievement images */
+.achievement-container {
+    display: flex;
+    flex-direction: column;  /* Arrange items in a column */
+    overflow-y: scroll;  /* Enable vertical scrolling */
+    scroll-snap-type: y mandatory;  /* Enable vertical scroll snapping */
+    scroll-behavior: smooth;  /* Smooth scrolling */
+    height: 100vh;  /* Set the height to full viewport height */
+    padding: 10px;  /* Optional: Add padding for aesthetics */
+    box-sizing: border-box;  /* Ensure padding is included in the width calculation */
+}
+
+/* Individual achievement blocks */
+.achievement {
+    flex: 0 0 auto;  /* Prevent shrinking and ensure proper height */
+    height: 100vh;  /* Make each block take the full viewport height */
+    scroll-snap-align: start;  /* Snap to the start of each achievement block */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;  /* Optional: Add spacing between blocks */
+}
+
+/* Ensure iframes fit well */
+.achievement iframe {
+    width: 100%;
+    height: 400px;  /* Adjust height as needed */
+}
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            color: #333;
+            
+        }
+
+        header {
+            background: linear-gradient(to right, #56ab2f, #a8e063);
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+html, body {
+    background-color: #228B22; /* Light green background */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Your existing CSS goes here */
+
+        /* Regular navigation links (visible on larger screens) */
+        .nav-links {
+            display: flex;
+            gap: 2em;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Hide the dropdown menu on larger screens */
+        .dropdown {
+            display: none;
+        }
+
+        /* Media query for mobile view */
+        @media (max-width: 768px) {
+            /* Hide regular nav links */
+            .nav-links {
+                display: none;
+            }
+
+            /* Show dropdown menu */
+            .dropdown {
+                display: block;
+                position: relative;
+            }
+
+            .dropbtn {
+                background-color: #56ab2f;
+                color: white;
+                padding: 1em;
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+                text-align: center;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+                width: 100%;
+            }
+
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: center;
+            }
+
+            .dropdown-content a:hover {
+                background-color: #f1f1f1;
+            }
+
+            /* Show the dropdown menu when the button is clicked */
+            .dropdown.show .dropdown-content {
+                display: block;
+            }
+        }
+
+        /* Container for the video to ensure it maintains the correct aspect ratio */
+.hero iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    padding: 2em;
+}
+
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-top: 0.5em;
+        }
+
+        main {
+            padding: 2em;
+        }
+
+        section {
+            margin: 0 auto; /* Center the section */
+            padding: 1em;
+            border-radius: 10px;
+            background: linear-gradient(to right, #006400, #32CD32); /* Dark green to light green gradient */
+            display: none;
+            position: relative;
+            color: white; /* Ensures text is visible on the gradient background */
+            max-width: 1200px; /* Set the maximum width */
+    box-sizing: border-box; /* Ensure padding doesn't add to the width */
+    width: 100%; /* Make it responsive */
+        }
+
+      section#about {
+    padding: 0;
+    border-radius: 0;
+    overflow: hidden;
+    min-height: 100vh; /* Ensure it takes at least the full height of the viewport */
+    display: flex;
+    flex-direction: column; /* Change to column layout to stack items vertically */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(to right, #006400, #32CD32); /* Dark green to light green gradient */
+    max-width: 1200px; /* Set the maximum width */
+    width: 100%; /* Make it responsive */
+    margin: 0 auto; /* Center the section */
+}
+
+section#about p,
+section#about h2,
+section#about h3,
+section#about ul {
+    font-size: 1.2em; /* Default font size */
+    line-height: 1.5;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 1024px) {
+    section#about p,
+    section#about h2,
+    section#about h3,
+    section#about ul {
+        font-size: 1.1em; /* Slightly smaller font size for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    section#about p,
+    section#about h2,
+    section#about h3,
+    section#about ul {
+        font-size: 1em; /* Smaller font size for mobile devices */
+    }
+}
+
+@media (max-width: 480px) {
+    section#about p,
+    section#about h2,
+    section#about h3,
+    section#about ul {
+        font-size: 0.9em; /* Even smaller font size for small mobile devices */
+    }
+}
+
+/* Dark overlay effect */
+section#about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+section#about h2,
+section#about p,
+section#about h3,
+section#about ul {
+    position: relative;
+    z-index: 2;
+    color: white;
+    padding: 20px;
+}
+
+
+        button {
+            margin-top: 1em;
+            padding: 0.5em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+        
+
+        #map-container {
+            width: 100%;
+            height: 400px;
+            background-color: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Default iframe style (for desktops/laptops) */
+.carousel-item iframe,
+#map-container iframe {
+    width: 100%;
+    height: 400px;
+    border: none;
+    border-radius: 10px;
+}
+
+/* Responsive styles for tablets and mobile devices */
+@media (max-width: 1024px) {
+    .carousel-item iframe,
+    #map-container iframe {
+        height: 300px; /* Adjust height for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-item iframe,
+    #map-container iframe {
+        height: 250px; /* Adjust height for mobile devices */
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-item iframe,
+    #map-container iframe {
+        height: 200px; /* Further adjust height for smaller mobile devices */
+    }
+}
+
+
+        .event {
+            border: 1px solid #ccc;
+            padding: 1em;
+            margin-bottom: 1em;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        .event h3 {
+            margin-top: 0;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 0.5em;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        footer a {
+            color: #a8e063;
+            text-decoration: none;
+        }
+
+        .active {
+            display: block !important;
+        }
+
+        .achievement {
+            margin-bottom: 2em;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+            background: #fff;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .carousel-item iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .caption {
+            font-size: 1em;
+            color: #666;
+            margin-top: 0.5em;
+        }
+
+        .carousel-buttons {
+            position: absolute;
+            top: 40%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 10px; /* Adjust padding as needed */
+            box-sizing: border-box;
+        }
+
+        .carousel-buttons button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            z-index: 1;
+        }
+
+    </style>
+    <script defer>
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.getElementById("volunteer-form");
+            form.addEventListener("submit", (event) => {
+                event.preventDefault();
+                const name = form.name.value;
+                const email = form.email.value;
+                const phone = form.phone.value;
+
+                alert(`Thank you for signing up, ${name}! We will contact you at ${email} or ${phone} with more information.`);
+                form.reset();
+            });
+            
+            // Navigation functionality
+            const sections = document.querySelectorAll('main > section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    sections.forEach(section => {
+                        section.style.display = 'none';
+                    });
+                    const targetId = link.getAttribute('href').substring(1);
+                    document.getElementById(targetId).style.display = 'block';
+                });
+            });
+
+            // Show the first section by default
+            document.getElementById('about').style.display = 'block';
+
+            // Carousel functionality
+            let currentIndex = 0;
+
+            function showSlide(index) {
+                const slides = document.querySelectorAll('.carousel-item');
+                if (index >= slides.length) currentIndex = 0;
+                if (index < 0) currentIndex = slides.length - 1;
+
+                const offset = -currentIndex * 100;
+                document.querySelector('.carousel').style.transform = `translateX(${offset}%)`;
+            }
+
+            function nextSlide() {
+                currentIndex++;
+                showSlide(currentIndex);
+            }
+
+            function prevSlide() {
+                currentIndex--;
+                showSlide(currentIndex);
+            }
+
+            document.querySelector('.next-btn').addEventListener('click', nextSlide);
+            document.querySelector('.prev-btn').addEventListener('click', prevSlide);
+
+            // Initialize the carousel
+            showSlide(currentIndex);
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const dropbtn = document.querySelector('.dropbtn');
+            const dropdown = document.querySelector('.dropdown');
+
+            dropbtn.addEventListener('click', () => {
+                dropdown.classList.toggle('show');
+            });
+
+            // Close the dropdown if the user clicks outside of it
+            window.addEventListener('click', (event) => {
+                if (!event.target.matches('.dropbtn')) {
+                    if (dropdown.classList.contains('show')) {
+                        dropdown.classList.remove('show');
+                    }
+                }
+            });
+
+            // Navigation functionality
+            const sections = document.querySelectorAll('main > section');
+            const navLinks = document.querySelectorAll('.dropdown-content a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    sections.forEach(section => {
+                        section.style.display = 'none';
+                    });
+                    const targetId = link.getAttribute('href').substring(1);
+                    document.getElementById(targetId).style.display = 'block';
+                    dropdown.classList.remove('show'); // Close dropdown after selecting
+                });
+            });
+
+            // Show the first section by default
+            document.getElementById('about').style.display = 'block';
+        });
+        
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-links">
+                <a href="#about">Home</a>
+                <a href="#achievements">Our Story</a>
+                <a href="#events">Achievements</a>
+                <a href="#sign-up">Ideas and Suggestions</a>
+                <a href="#map">Locations</a>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Menu</button>
+                <div class="dropdown-content">
+                    <a href="#about">Home</a>
+                    <a href="#achievements">Our Story</a>
+                    <a href="#events">Achievements</a>
+                    <a href="#sign-up">Volunteer</a>
+                    <a href="#map">Locations</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+       <section id="about">
+           <div class="hero">
+        <iframe id="about-video" src="https://www.youtube.com/embed/XVtKLg66V2o?autoplay=1&loop=1&playlist=XVtKLg66V2o&mute=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <div class="hero-content">
+            <h1>Family Engagement Programs, Inc</h1>
+            <p>Environmental Awareness Campaign</p>
+        </div>
+    </div>
+    <h2>About Us</h2>
+    <div class="mission-vision-container">
+        <div class="box mission">
+            <h3>Mission</h3>
+            <p>The Family Engagement Program's mission is to empower families through strong community partnerships, economic development, healthy living, educational advancement, and physical activity. We create a supportive and inclusive environment where families can thrive and reach their full potential, ensuring a brighter future for all. By strengthening the family unit, we enhance the well-being of our communities, believing that resilient families are the foundation of thriving communities. Through our efforts, we are committed to building a better world, one family at a time.</p>
+        </div>
+        <div class="box vision">
+            <h3>Vision</h3>
+            <p>The Family Engagement Program's vision is to create a world where every family has access to the resources and support they need to flourish. Our vision includes strong, empowered families leading their communities toward greater economic stability, educational excellence, and health and wellness. By fostering collaboration and shared responsibility, we envision communities where every family is valued and given opportunities to succeed, ensuring a sustainable and prosperous future for generations to come.</p>
+        </div>
+    </div>
+<div class="box goals">
+
+ <h3>Goals</h3>
+           <ul class="leaf-icons">
+  <li>Increasing public awareness about the environmental issues affecting society now and in the future. Our program emphasizes youth - the leaders of tomorrow.</li>
+  <li>Collaborating with community educators to develop innovative hands-on learning projects in underserved schools focused on mitigating pollution and future climate-change impacts.</li>
+  <li>Reduce the effects of environmental pollution on EJ communities throughout the Pee Dee.</li>
+  <li>Using the environment as a tool to improve the academic performance of students in all core subject matters.</li>
+  <li>Integrate nature-based projects into youth-at-risk mentoring programs.</li>
+  <li>To build educational workforce pipelines leading to environmental careers.</li>
+  <li>Promote community resilience through environmental education and action programs.</li>
+  <li>Be a conduit for voicing disadvantaged community concerns to policy makers and government leaders.</li>
+  <li>Build community partnerships and coalitions to address the needs of disadvantaged communities in the Pee Dee.</li>
+</ul>
+
+        </section>
+        <section id="achievements">
+            <h2>History of the Environmental Awareness Center
+</h2>
+<h3>Our most recent pilot project is the Environmental Awareness Center located at the
+Darlington Middle School in Darlington, SC. The Center’s goal is to improve student
+academic performance by using the environment as a unique, hands-on learning tool
+built in the school’s own backyard.
+For this collaborative project, the Families Engagement Program worked with the
+Darlington County School District and Clemson University to obtain grant support for the
+project. Families Engagement also assisted with the development of the educational
+materials and demonstrations at the Center. Started in 2023, the Environmental
+Awareness Program sprung from another successful pilot program started at the Middle
+School in 2020 called the Research Courtyard Program where all students participate in
+an outdoor research project specific to the science standards for his or her grade.</h3>
+<li>Established 2023 as a pilot program at the Darlington County Middle School</li>
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-item">
+                        <iframe src="https://drive.google.com/file/d/1Y-nAyaqSK7_QmTscCu0LybSxHO3Urg8y/preview" width="100%" height="400"></iframe>
+                        <div class="caption">In the Beginning:  
+The site at the Middle School was almost barren, having a storm drain but no trees or bushes.
+</div>
+                    </div>
+                    <div class="carousel-item">
+                        <iframe src="https://drive.google.com/file/d/1X_Y6AO2LWQCS2Uu4nWq0alXaO4wmLSnd/preview" width="100%" height="400"></iframe>
+                        <div class="caption">The first goal was to add green space. The soil was loosened in preparation for the planting of trees and bushes.
+</div>
+                    </div>
+                    <div class="carousel-item">
+                        <iframe src="https://drive.google.com/file/d/1tq9DNzKa3jYZ1t3dr79hrhA853h6bAzq/preview" width="100%" height="400"></iframe>
+                        <div class="caption">Benches that were no longer in use.
+</div>
+                    </div>
+                    <div class="carousel-item">
+                        <iframe src="https://drive.google.com/file/d/1rJNp8AWovIFLxpszlWzqij9iYimZxAU8/preview" width="100%" height="400"></iframe>
+                        <div class="caption">The deteriorating benches were moved to the Middle School
+</div>
+                    </div>
+                    <div class="carousel-item">
+                        <iframe src="https://drive.google.com/file/d/1dblwhN0ow79CpVnSbIeZ9sNBszydMDNv/preview" width="100%" height="400"></iframe>
+                        <div class="caption">The benches were repaired, stained, and arranged as an amphitheater at the Center.
+</div>
+                    </div>
+                    <div class="carousel-item">
+                        <iframe src="https://drive.google.com/file/d/1r1f_ybF-SPQAFwSf9b-aenbQqnf-ODhA/preview" width="100%" height="400"></iframe><div class="caption">An older kiosk (in foreground) and old wooden picnic tables (near school building) were also repaired and reused.
+</div>
+                    </div>
+                    <div class="carousel-item">
+                        <iframe src="https://drive.google.com/file/d/1Z_68ICBkMDcz1UUEucfX9_mzXJECVHmZ/preview" width="100%" height="400"></iframe><div class="caption">Seeking Community Input
+</div>
+</div>
+                    <div class="carousel-item">
+                        <iframe src="https://drive.google.com/file/d/1rbqVkdgBrngkjYFhAFdzL_ZQwKRKFj66/preview" width="100%" height="400"></iframe><div class="caption">Trees are planted to provide greens space for students and food and shelter for wildlife.
+</div></div>
+                    <div class="carousel-item">
+                        <iframe src="https://drive.google.com/file/d/1EKguFN483QmdWd5SgoBVIopbUrTswAxK/preview" width="100%" height="400"></iframe><div class="caption">Next:
+The stage for the program was set – or should we say stages.
+The main stage for the amphitheater was built over the stormwater drain at the site.
+
+</div></div>
+                    <div class="carousel-item">
+                        <iframe src="https://drive.google.com/file/d/1U6RVYuGw9g9HPTvq-sEdHlzhQske47YL/preview" width="100%" height="400"></iframe><div class="caption">Demonstrations for reducing stormwater runoff and water pollution were constructed around the main stage. 
+
+</div></div>
+                    <div class="carousel-item">
+                        <iframe src="https://drive.google.com/file/d/1QXxqzsjsVf1LBNMQwC2hk6Rsq40X3_-G/preview" width="100%" height="400"></iframe><div class="caption">Garden plots were constructed at the Center for conducting both student and adult educational programs.
+</div></div>
+                    <div class="carousel-item">
+                        <iframe src="https://drive.google.com/file/d/1PbBE9x8-YATnUwzP1JmMcq60ZG03WKP4/preview" width="100%" height="400"></iframe><div class="caption">Other types of gardens were built, including stone and tire gardens.
+
+</div>
+
+</div>
+                    <div class="carousel-item">
+                        <iframe src="https://drive.google.com/file/d/13ABTGz04JgQdHgq-2KFsI9BWDZ1_xCmU/preview" width="100%" height="400"></iframe><div class="caption">An opening ceremony was held last spring, allowing community members another opportunity to give suggestions for the Environmental Awareness Center.
+
+</div>
+</div>
+                    <div class="carousel-item">
+                        <iframe src="https://drive.google.com/file/d/1XaATY2aiNsByNrTlbbkklyud34r9BDFj/preview" width="100%" height="400"></iframe><div class="caption">The plants are growing and educational signage is being added.
+
+</div>
+
+</div>
+                    <div class="carousel-item">
+                        <iframe src="https://drive.google.com/file/d/1QAmUaEeBfk8Nqm66FXUBTux0ADFc_2BT/preview" width="100%" height="400"></iframe><div class="caption">Middle School students prepare written reports for their ELA classes based on the information displayed in the Environmental Awareness Center.
+
+</div>
+
+</div>
+                    <div class="carousel-item">
+                        <iframe src="https://drive.google.com/file/d/1_V6FGrXrulOrsbC-41TySJkC7Ik__PZm/preview" width="100%" height="400"></iframe><div class="caption">Coming next! The gazebo at the Environmental Awareness Center will be turned into a renewable energy demonstration featuring different uses of solar energy. The adjacent open area will also demonstrate other forms of renewable energy as well as highlight our growing air-pollution problems and the many issues facing society today due to climate change.
+</div>
+                    </div>
+                </div>
+                <div class="carousel-buttons">
+                    <button class="prev-btn">&#10094;</button>
+                    <button class="next-btn">&#10095;</button>
+                </div>
+            </div>
+        </section>
+        <section id="events">
+            <h2>Achievements</h2>
+            <h3>Just completed in the Environmental Awareness Center is the sustainable garden
+project where students and the community learn about the physical and mental health
+benefits from both a good diet and outdoor exercise. Students also learn about using
+natural means of controlling unwanted pests around the yard and garden and how to
+build nontraditional floral gardens out of materials such as used tires.</h3>
+<!-- Achievement Images and Captions -->
+<div class="achievement-container">
+    <div class="achievement">
+        <h3>Three raised beds constructed and lined with plastic.</h3>
+        <iframe src="https://drive.google.com/file/d/1sQjPzY_BjWz6gkzdJGOoSUXZH0jkkgB7/preview" width="100%" height="400"></iframe>
+    </div>
+    <div class="achievement">
+        <h3>Soil purchased and spread in the raised beds.</h3>
+        <div class="image-row">
+            <iframe src="https://drive.google.com/file/d/17VECx-TY_VOWIytK2UHyiXaKlgiJ-lIt/preview" width="100%" height="400"></iframe>
+            <iframe src="https://drive.google.com/file/d/1STU05TiNGjIjXcQmKBxB22AmDVRp93p9/preview" width="100%" height="400"></iframe>
+    </div>
+    <div class="achievement">
+        <h3>Three different designs were used for the raised beds. Tomatoes, bell peppers, and sweet potatoes were planted in the beds.</h3>
+        <div class="image-row">
+        <iframe src="https://drive.google.com/file/d/1IlBoDhVbjEDp14YghXVMxAXce9sISYvO/preview" width="100%" height="400"></iframe>
+        <iframe src="https://drive.google.com/file/d/1GgYXJ0aZbRGrZwMzfX1jnQTpelKkiTbi/preview" width="100%" height="400"></iframe>
+    </div>
+    <div class="achievement">
+        <h3>A tire garden was constructed at the garden site.</h3>
+        <iframe src="https://drive.google.com/file/d/1qvk20To-4FByPCGj8r-loWK3miC_dxdY/preview" width="100%" height="400"></iframe>
+    </div>
+    <div class="achievement">
+        <h3>A rain barrel is in place. Rain gutters will soon be installed on the gazebo for rainwater collection.</h3>
+        <iframe src="https://drive.google.com/file/d/1UDZQfv41K5uOBJMABjJQSQEalRGNWNko/preview" width="100%" height="400"></iframe>
+    </div>
+    <div class="achievement">
+        <h3>Work benches have been put in place at the garden site.</h3>
+        <div class="image-row">
+        <iframe src="https://drive.google.com/file/d/11tZQs6xBbgn-L_Gp5HbeSLUiFzqWB7dU/preview" width="100%" height="400"></iframe>
+        <iframe src="https://drive.google.com/file/d/1wwF6R6l64BcH-V62cRZUbJ9HltusNafX/preview" width="100%" height="400"></iframe>
+    </div>
+    <div class="achievement">
+        <h3>Pollinator and fruit-bearing plants planted next to the raised garden beds.</h3>
+        <div class="image-row">
+        <iframe src="https://drive.google.com/file/d/1VtS9RAoMbZQoFmICUh0VX6fj5UWBYOra/preview" width="100%" height="400"></iframe>
+        <iframe src="https://drive.google.com/file/d/1Uj-kbfx4JO0juLdhCWiuszsFsDFfLb6S/preview" width="100%" height="400"></iframe>
+    </div>
+    <div class="achievement">
+        <h3>Families Engagement Organization Program Director Tony Stephenson and State House Representative Robert Williams helping to erect a sign at the Center.</h3>
+        <iframe src="https://drive.google.com/file/d/1qpuYYHsMq9ULgkrmanGqC7MxcqpZuxTd/preview" width="100%" height="400"></iframe>
+    </div>
+    <div class="achievement">
+         <h2>Coming soon:</h2>
+         <h3>Demonstrations on renewable clean energy to power our future!</h3>
+        <div class="image-row">
+        <iframe src="https://drive.google.com/file/d/13C9RFiMIINp4h6Y-aByjA_40QA2C5Z7S/preview" width="100%" height="400"></iframe>
+        <iframe src="https://drive.google.com/file/d/1zQd441qHkSrNUt3sUy-1XuvxqJC_3oUX/preview" width="100%" height="400"></iframe>
+        <iframe src="https://drive.google.com/file/d/1pVLNxeJbh2MRIaLoow7SIp9kGpTy7j0A/preview" width="100%" height="400"></iframe>
+    </div>
+</div>
+        </section>
+        <section id="events">
+            <h2>Upcoming Events</h2>
+            <div id="event-list"></div>
+        </section>
+
+            <div id="event-list"></div>
+        </section>
+
+        <section id="sign-up">
+            <h2>Ideas and Suggestion</h2>
+            <h3>Ideas from the communities we serve are very important to us. To discuss an idea or for
+more information about the Environmental Awareness Center or any of other
+environmental projects, please contact:</h3>
+<pre>Jim Frederick
+Professor Clemson University
+Families Engagement Program Board Member
+jfrdrck@clemson.edu</pre>
+            <h2>Volunteer with Us</h2>
+            <form id="volunteer-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone">
+                <button type="submit">Sign Up</button>
+            </form>
+        </section>
+        <section id="map">
+            <h2>Our Locations</h2>
+            <h3>Our Environmental Awareness Center pilot project is located at the Darlington Middle
+School, 150 Pinedale Drive, Darlington, SC 29532.</h3>
+            <div id="map-container">
+                <iframe src="https://drive.google.com/file/d/19JaTsvsUDrC7rmSVCVhXe5i-OOp1E8rn/preview" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Environmental Awareness Center. All rights reserved. | <a href="#">Privacy Policy</a></p>
+    </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
